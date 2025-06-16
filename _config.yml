@@ -4,7 +4,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 
 title: George Harper
 email: geo.gh.213@gmail.com
-author: GitHub User
+
 
 description: >- # this means to ignore newlines until "baseurl:"
   My Profile
@@ -15,7 +15,7 @@ collections:
     permalink: /:collection/:name/
 
 
-favicon: ""
+favicon: "/profile_fav.png"
 
 
 navigation:

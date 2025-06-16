@@ -1,178 +1,269 @@
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <title>{{ page.title }} - {{ site.title }}</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="shortcut icon" type="image/png" href="profile_fav.png" />
 
-        .block {
-            width: 100%;
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
 
-            display: grid;
-            grid:
-                "sidebar body" 1fr / auto 1fr;
-            gap: 8px;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .sidebar {
-            grid-area: sidebar;
-        }
+    /* FONTS */
 
-        .main {
-            grid-area: body;
-        }
+    .raleway {
+      font-family: "Raleway", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #fff;
-            background: #1a2238;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+    .block {
+      width: 100%;
+      display: grid;
+      grid:
+        "header header" auto
+        "sidebar main" 1fr / 1fr 1fr;
+      gap: 8px;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid #3a4766;
-        }
+    .sidebar {
+      grid-area: sidebar;
+      margin: 1em;
+    }
 
-        .name {
-            font-size: 2.5em;
-            font-weight: 300;
-            margin-bottom: 10px;
-            color: #fff;
-        }
+    .main {
+      grid-area: main;
+      margin: 1em;
+    }
 
-        .title {
-            font-size: 1.1em;
-            color: #b8c5d6;
-            font-weight: 400;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      background: #1a2238;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
 
-        .section {
-            margin-bottom: 50px;
-        }
+    .header {
+      grid-area: header;
+      text-align: center;
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #3a4766;
+    }
 
-        .section-title {
-            font-size: 1.2em;
-            font-weight: 500;
-            margin-bottom: 20px;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .name {
+      font-size: 2.5em;
+      font-weight: 300;
+      margin-bottom: 10px;
+      color: #fff;
+    }
 
-        .about-text {
-            font-size: 1em;
-            line-height: 1.7;
-            color: #d4dae5;
-        }
+    .title {
+      font-size: 1.1em;
+      color: #b8c5d6;
+      font-weight: 400;
+    }
 
-        .skills-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+    .section {
+      margin-bottom: 50px;
+    }
 
-        .skill {
-            background: #2d3f5f;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: #e8ecf2;
-        }
+    .section-title {
+      font-size: 1.2em;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-        .projects {
-            list-style: none;
-        }
+    .about-text {
+      font-size: 1em;
+      line-height: 1.7;
+      color: #d4dae5;
+    }
 
-        .project {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #3a4766;
-        }
+    .profile-container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px #0000001a;
+    }
 
-        .project:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
+    .profile-image {
+      width: 150px; /* Set a fixed width */
+      height: 150px; /* Set a fixed height, same as width for a perfect circle */
+      border-radius: 50%; /* This is the key property for making it circular */
+      object-fit: cover; /* Ensures the image covers the area without distortion */
+      border: 3px solid #007bff; /* Optional: Add a border */
+      box-shadow: 0 0 10px rgba(1, 52, 107, 0.3); /* Optional: Add a subtle shadow */
+      margin-bottom: 15px;
+    }
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
 
-        .project-title {
-            font-size: 1.1em;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: #fff;
-        }
+    .skill {
+      background: #2d3f5f;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      border: #1a2238 1px solid;
+      color: #e8ecf2;
+    }
 
-        .project-description {
-            color: #b8c5d6;
-            margin-bottom: 10px;
-            font-size: 0.95em;
-        }
+    .skill:hover {
+      background-color: #466499;
+      border: solid 1px #ff0095;
+      transition: 2s;
+    }
 
-        .project-tech {
-            font-size: 0.85em;
-            color: #8a9bb8;
-        }
+    .projects {
+      list-style: none;
+    }
 
-        .contact {
-            list-style: none;
-        }
+    .project {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #3a4766;
+    }
 
-        .contact-item {
-            margin-bottom: 15px;
-        }
+    .project:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
 
-        .contact-label {
-            display: inline-block;
-            width: 80px;
-            font-weight: 500;
-            color: #b8c5d6;
-            font-size: 0.9em;
-        }
+    .project-title {
+      font-size: 1.1em;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #fff;
+    }
 
-        .contact-link {
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-bottom 0.2s ease;
-        }
+    .project-description {
+      color: #b8c5d6;
+      margin-bottom: 10px;
+      font-size: 0.95em;
+    }
 
-        .contact-link:hover {
-            border-bottom: 1px solid #fff;
-        }
+    .project-tech {
+      font-size: 0.85em;
+      color: #8a9bb8;
+    }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 20px 15px;
-            }
+    .contact {
+      list-style: none;
+    }
 
-            .name {
-                font-size: 2em;
-            }
+    .contact-item {
+      margin-bottom: 15px;
+    }
 
-            .skills-list {
-                gap: 10px;
-            }
+    .contact-label {
+      display: inline-block;
+      width: 80px;
+      font-weight: 500;
+      color: #b8c5d6;
+      font-size: 0.9em;
+    }
 
-            .skill {
-                padding: 6px 12px;
-                font-size: 0.85em;
-            }
+    .contact-link {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.2s ease;
+    }
 
-            .contact-label {
-                width: 70px;
-                font-size: 0.85em;
-            }
-        }
-    </style>
+    .contact-link:hover {
+      border-bottom: 1px solid #fff;
+    }
 
+    @media (max-width: 600px) {
+      .block {
+        display: block;
+      }
+
+      body {
+        padding: 20px 15px;
+      }
+
+      .name {
+        font-size: 2em;
+      }
+
+      .skills-list {
+        gap: 10px;
+      }
+
+      .skill {
+        padding: 6px 12px;
+        font-size: 0.85em;
+      }
+
+      .contact-label {
+        width: 70px;
+        font-size: 0.85em;
+      }
+    }
+    /* table styles */
+
+    .table-overflow {
+      overflow-x: auto;
+    }
+
+    table {
+      overflow-x: auto;
+      border-left: solid 0.3em;
+      border-color: #19225e;
+      border-collapse: collapse;
+      text-align: left;
+      width: 100%;
+    }
+    th,
+    td {
+      padding: 0.5em;
+      border: solid 0.1em;
+      border-color: #19225e;
+    }
+    .hover:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+      transition: 0.8s;
+    }
+    .profile_element {
+      background-image: url("/images/network-defense.png");
+      width: 400px;
+      height: 300px;
+      margin: 20px auto;
+      border: 3px solid #1a1627;
+      border-radius: 10px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .profile_element:hover {
+      background-image: url("/images/ccna-switching-routing-and-wireless-essentials.1.png");
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+      transition: 1s;
+    }
+  </style>
 </head>
